@@ -89,7 +89,7 @@ footer{padding:50px 0 80px;color:var(--mu)}footer .script{font-size:1.9rem;displ
 .tap{display:inline-block;margin-top:18px;padding:12px 28px;border:1px solid var(--gold);border-radius:999px;color:var(--gold);animation:pl 1.8s infinite;letter-spacing:.1em}
 @keyframes pl{0%{box-shadow:0 0 0 0 rgba(245,179,53,.5)}100%{box-shadow:0 0 0 14px transparent}}
 #splash.open .a{transform:translateX(-100%)}#splash.open .b{transform:translateX(100%)}#splash.open .sp{opacity:0}
-.petal{position:fixed;top:-20px;z-index:4;border-radius:50% 50% 50% 8%;background:radial-gradient(circle at 35% 35%,#FFD36B,var(--gold) 55%,#D9780A);pointer-events:none;animation:fall linear forwards}
+.petal{position:fixed;top:-40px;z-index:4;pointer-events:none;animation:fall linear forwards;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))}.petal svg{display:block;width:100%;height:100%}
 @keyframes fall{to{transform:translate(var(--dx),110vh) rotate(var(--rot))}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}.rv,h1 span{opacity:1;transform:none}.petal{display:none}}
 </style></head><body class="lock">
@@ -120,8 +120,8 @@ footer{padding:50px 0 80px;color:var(--mu)}footer .script{font-size:1.9rem;displ
 <section id="families" class="rv"><h2 data-bn="পরিবার">The families</h2><div class="orn"><i></i></div>
 <div class="two">
 <div class="card fam"><h3 data-bn="কনে">The Bride</h3><p class="n" data-bn="মরিয়ম বেগম তিশা">Morium Begum Tisha</p><p class="r" data-bn="কন্যা">Daughter of</p>
-<p data-bn="মোঃ শাহাবুদ্দিন মোল্লা">Md. Shahabuddin Molla</p><p data-bn="নাসিমা সুলতানা">Nasima Sultana</p>
-<p class="ad" data-bn="গ্রাম: গাছানী, ডাকঘর: গাছানী">Vill: Gachani, PO: Gachani<br>Thana: Dashmina, <br>Zila: Patuakhali</p></div>
+<p data-bn="মোঃ শাহাবুদ্দিন মোল্লা">Md. Shahabuddin Molla</p><p data-bn="নাসিমা সুলতানা">Mst. Nasima Sultana</p>
+<p class="ad" data-bn="গ্রাম: গাছানী, ডাকঘর: গাছানী">Vill: Gachani, PO: Gachani<br>Thana: Dashmina, Zila: Patuakhali</p></div>
 <div class="card fam"><h3 data-bn="বর">The Groom</h3><p class="n" data-bn="মো. লাবিদ হোসেন (শিহাব)">Md. Labid Hossen (Shihab)</p><p class="r" data-bn="পুত্র">Son of</p>
 <p data-bn="মো. হাবিবুর রহমান">Md. Habibur Rahman</p><p data-bn="মোছা. নাসরিন আক্তার">Mst. Nasrin Akter</p>
 <p class="ad" data-bn="গ্রাম: চাঁদপুরা, ডাকঘর: আলীপুর<br>থানা: দশমিনা, জেলা: পটুয়াখালী">Vill: Chandpura, PO: Alipur<br>Thana: Dashmina, Zila: Patuakhali</p></div></div></section>
@@ -135,7 +135,7 @@ footer{padding:50px 0 80px;color:var(--mu)}footer .script{font-size:1.9rem;displ
 <button class="btn alt" id="copy" data-bn="ঠিকানা কপি করুন">Copy address</button></div></div></section>
 
 <section id="contact" class="rv contact"><h2 data-bn="যোগাযোগ">Questions? Reach out</h2><div class="orn"><i></i></div>
-<div class="card"><p class="nm" data-bn="মোঃ হামীম মাহমুদ">Md. Hamim Mahamud</p><p class="sm" data-bn="কনের ভাই">Bride’s brother</p>
+<div class="card"><p class="nm" data-bn="মোঃ হামিম মাহমুদ">Md. Hamim Mahamud</p><p class="sm" data-bn="কনের ভাই">Bride’s brother</p>
 <div class="btns"><a class="btn" href="tel:+8801743957593" data-bn="কল করুন ০১৭৪৩৯৫৭৫৯৩">Call 01743957593</a>
 <a class="btn alt" href="https://wa.me/qr/5WQJ4THO346EK1?s=v" target="_blank" rel="noopener">WhatsApp</a></div></div></section>
 
@@ -170,10 +170,17 @@ try{localStorage.setItem("lang",l)}catch(e){}tick()}
 $("lang").onclick=()=>setLang(lang=="bn"?"en":"bn");
 $("copy").onclick=async()=>{try{await navigator.clipboard.writeText("Putulbari Restaurant & Community Center, "+$("addr").textContent);$("copy").textContent=lang=="bn"?"কপি হয়েছে ✓":"Copied ✓"}catch(e){}};
 $("share").onclick=async e=>{e.preventDefault();try{if(navigator.share)await navigator.share({title:"Tisha & Shihab's Wedding",url:location.href});else{await navigator.clipboard.writeText(location.href);$("share").textContent=lang=="bn"?"লিংক কপি হয়েছে":"Link copied"}}catch(x){}};
-function petals(n){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;for(let i=0;i<n;i++){const p=document.createElement("i"),s=8+Math.random()*10;p.className="petal";
-p.style.cssText=`left:${Math.random()*100}vw;width:${s}px;height:${s}px;--dx:${(Math.random()*160-80)|0}px;--rot:${(Math.random()*720)|0}deg;animation-duration:${5+Math.random()*6}s;animation-delay:${Math.random()*3}s`;document.body.appendChild(p);setTimeout(()=>p.remove(),15000)}}
+const SH={
+flower:c=>`<svg viewBox="-11 -11 22 22"><g fill="${c}" stroke="rgba(0,0,0,.12)" stroke-width=".4">${[0,72,144,216,288].map(a=>`<ellipse cy="-5" rx="3.6" ry="5.4" transform="rotate(${a})"/>`).join("")}</g><circle r="2.4" fill="#FFC93C"/><circle r="1" fill="#D9780A"/></svg>`,
+leaf:c=>`<svg viewBox="-11 -11 22 22"><path d="M0-10C9-6 9 4 0 10C-9 4-9-6 0-10Z" fill="${c}"/><path d="M0-8V10M0-2L4-6M0 3L-4-1M0 3L4-1" stroke="rgba(255,255,255,.55)" stroke-width=".7" fill="none"/></svg>`,
+peacock:c=>`<svg viewBox="-11 -11 22 22"><path d="M0-9C8-8 8 2 0 7C-8 2-8-8 0-9Z" fill="${c}" opacity=".75"/><path d="M-7-4L0 2L7-4M-7 0L0 5L7 0M-5-7L0-1L5-7" stroke="#0f6b52" stroke-width=".5" fill="none"/><ellipse cy="-3.5" rx="3.6" ry="4.6" fill="#2b6cb0"/><ellipse cy="-3.5" rx="2.4" ry="3.2" fill="#14a39a"/><ellipse cy="-3.5" rx="1.2" ry="1.7" fill="#2d1b69"/><path d="M0 10V2" stroke="#8a6d2f" stroke-width=".8"/></svg>`,
+dove:c=>`<svg viewBox="-11 -11 22 22"><path d="M-1 11C-7 2-4-8 7-10C6-2 5 5-1 11Z" fill="${c}" stroke="rgba(120,90,160,.45)" stroke-width=".5"/><path d="M-1 11C1 3 3-4 7-10M1 4L-3 2M2 0L-2-2M3-4L0-6" stroke="rgba(120,90,160,.55)" stroke-width=".6" fill="none"/></svg>`,
+feather:c=>`<svg viewBox="-11 -11 22 22"><path d="M1-10C9-7 9 2 2 8L0 6C-6 2-5-6 1-10Z" fill="${c}" stroke="rgba(120,90,160,.45)" stroke-width=".5"/><path d="M0 11L1-8M1-4L5-6M0 0L5-2M0 4L4 2M1-4L-3-5M0 0L-4-1" stroke="rgba(120,90,160,.55)" stroke-width=".6" fill="none"/></svg>`};
+const CL={flower:["#FF9EB5","#FFD1DC","#FFB627","#FFFFFF","#F47CA0"],leaf:["#6FBF73","#3E9B5A","#8ED081","#4FAE6A"],feather:["#FFF6E8","#F1E6FA","#FFFFFF","#FFE3A1"],peacock:["#1fae8a","#29b59a","#1c9b7d"],dove:["#FFFFFF","#F6F1FA","#E8E0F2","#FFF6E8"]},KS=Object.keys(SH);
+function petals(n){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;for(let i=0;i<n;i++){const t=KS[(Math.random()*KS.length)|0],c=CL[t][(Math.random()*CL[t].length)|0],p=document.createElement("i"),s=18+Math.random()*16;p.className="petal";p.innerHTML=SH[t](c);
+p.style.cssText=`left:${Math.random()*100}vw;width:${s}px;height:${s}px;--dx:${(Math.random()*200-100)|0}px;--rot:${(Math.random()*900-450)|0}deg;animation-duration:${6+Math.random()*7}s;animation-delay:${Math.random()*3}s`;document.body.appendChild(p);setTimeout(()=>p.remove(),17000)}}
 function openCard(){const s=$("splash");if(s.classList.contains("open"))return;s.classList.add("open");document.body.classList.remove("lock");document.body.classList.add("go");
-$("lang").style.display="block";petals(36);setTimeout(()=>s.remove(),1400);setInterval(()=>petals(5),4000)}
+$("lang").style.display="block";petals(30);setTimeout(()=>s.remove(),1400);setInterval(()=>petals(4),4000)}
 $("splash").onclick=openCard;$("splash").onkeydown=e=>{if(e.key=="Enter"||e.key==" ")openCard()};
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll(".rv").forEach(e=>io.observe(e));
