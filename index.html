@@ -92,16 +92,62 @@ footer{padding:50px 0 80px;color:var(--mu)}footer .script{font-size:1.9rem;displ
 .petal{position:fixed;top:-40px;z-index:4;pointer-events:none;animation:fall linear forwards;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))}.petal svg{display:block;width:100%;height:100%}
 @keyframes fall{to{transform:translate(var(--dx),110vh) rotate(var(--rot))}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}.rv,h1 span{opacity:1;transform:none}.petal{display:none}}
+
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.btn{min-height:46px;display:inline-flex;align-items:center;justify-content:center}
+#lang{min-height:38px}
+@media(max-width:600px){
+body{font-size:1rem}
+nav{top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 10px);max-width:calc(100vw - 20px);width:max-content;justify-content:space-between;padding:4px;overflow:visible}
+nav a{flex:1;text-align:center;padding:10px 9px;font-size:.68rem;letter-spacing:.03em}
+#lang{top:calc(env(safe-area-inset-top,0px) + 10px);right:clamp(26px,7vw,40px)}
+footer{padding-bottom:110px}
+.hero{padding:64px 0 30px}
+.arch{width:min(240px,64vw,36svh)}
+section{padding-top:38px}
+h2{font-size:2.1rem}
+.card{padding:22px 16px}
+#count{gap:6px}#count div{padding:12px 0 8px;border-radius:12px 12px 3px 12px}
+#count b{font-size:clamp(1.6rem,8.5vw,2.2rem)}#count span{font-size:.62rem;letter-spacing:.04em}
+.bar .t{font-size:.75rem}
+.btns{flex-direction:column;align-items:stretch}.btns .btn{width:100%}
+.venue h3{font-size:1.25rem}
+.fam .n{font-size:1.8rem}
+footer .btn{width:100%}
+.ev b{font-size:1.08rem}
+}
+@media(max-width:340px){nav a{padding:10px 6px;font-size:.6rem}.strip{width:14px}main{padding:0 24px}}
+@media(max-height:560px) and (orientation:landscape){.hero{min-height:auto;padding:70px 0 30px}nav{top:8px;bottom:auto}}
+#music{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);left:clamp(26px,7vw,40px);z-index:31;width:40px;height:38px;border-radius:999px;border:0;background:var(--gold);color:#2b0f3d;font-size:1.05rem;cursor:pointer;display:none;place-items:center;box-shadow:0 4px 12px rgba(0,0,0,.35)}
+#music:focus-visible{outline:3px solid var(--iv);outline-offset:3px}
+#music.pulse{animation:pl 2s infinite}
+
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#D9780A,#FFD36B);z-index:60;box-shadow:0 0 8px var(--gold)}
+#tw{position:fixed;inset:0;z-index:0;pointer-events:none}
+.tw{position:absolute;width:3px;height:3px;border-radius:50%;background:#FFE3A1;box-shadow:0 0 6px 1px rgba(255,211,107,.8);animation:twk var(--d) ease-in-out infinite;animation-delay:var(--l);opacity:0}
+@keyframes twk{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:1;transform:scale(1.5)}}
+.garland{position:absolute;top:0;left:50%;width:100vw;margin-left:-50vw;height:38px;pointer-events:none;
+background:radial-gradient(circle at 12px 15px,#FF9A1F 0 8px,#E07B0A 9px 10px,transparent 11px) 0 0/48px 38px repeat-x,radial-gradient(circle at 36px 21px,#FFC93C 0 8px,#E0A00A 9px 10px,transparent 11px) 0 0/48px 38px repeat-x;filter:drop-shadow(0 4px 4px rgba(0,0,0,.35))}
+.garland:before{content:"";position:absolute;left:0;right:0;top:17px;height:2px;background:#5a8f3d;z-index:-1}
+.lan{position:absolute;top:34px;width:34px;transform-origin:50% 0;animation:sw var(--s) ease-in-out infinite alternate;pointer-events:none}
+.lan svg{width:100%;overflow:visible;filter:drop-shadow(0 0 10px rgba(255,180,50,.55))}
+@keyframes sw{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}
+.lan.a{left:3%;--s:3.4s}.lan.b{left:15%;--s:4.2s;margin-top:18px;width:26px}.lan.c{right:15%;--s:3.8s;margin-top:18px;width:26px}.lan.d{right:3%;--s:4.6s}
+.arch{transition:transform .25s ease-out;will-change:transform}
+@media(max-width:600px){.lan.b,.lan.c{display:none}.lan{width:28px}.lan.a{left:1%}.lan.d{right:1%}}
+@media(prefers-reduced-motion:reduce){.tw{opacity:.6}.lan{animation:none}}
 </style></head><body class="lock">
-<div class="strip l"></div><div class="strip r"></div>
+<div id="prog"></div><div id="tw"></div><div class="strip l"></div><div class="strip r"></div>
 <div id="splash" role="button" tabindex="0" aria-label="Open invitation"><div class="door a"></div><div class="door b"></div>
 <div class="sp"><p class="sm" data-bn="আপনি আমন্ত্রিত">You are invited</p><p class="script">Tisha &amp; Shihab</p><span class="tap" data-bn="খুলতে ট্যাপ করুন">Tap to open</span></div></div>
 
+<audio id="bg" loop preload="auto" src="music.mp3"></audio>
+<button id="music" aria-label="Music on/off" aria-pressed="true">🔊</button>
 <button id="lang">বাংলা</button>
 <nav id="nav"><a href="#top" data-bn="শুরু">Home</a><a href="#when" data-bn="সময়">Date</a><a href="#details" data-bn="বিবরণ">Details</a><a href="#families" data-bn="পরিবার">Families</a><a href="#venue" data-bn="স্থান">Venue</a><a href="#contact" data-bn="যোগাযোগ">Contact</a></nav>
 
 <main>
-<header class="hero" id="top"><div class="mw"><svg id="mand" viewBox="-110 -110 220 220"></svg></div>
+<header class="hero" id="top"><div class="garland"></div><div class="lan a"><svg viewBox="0 0 40 90"><line x1="20" y1="0" x2="20" y2="22" stroke="#d9a441" stroke-width="1.2"/><rect x="12" y="20" width="16" height="5" rx="2" fill="#d9a441"/><ellipse cx="20" cy="46" rx="16" ry="21" fill="url(#lg)"/><path d="M20 25C8 38 8 56 20 67M20 25C32 38 32 56 20 67M20 25V67M5 46H35" stroke="rgba(120,40,0,.45)" stroke-width=".8" fill="none"/><rect x="13" y="66" width="14" height="4" rx="2" fill="#d9a441"/><path d="M16 70V84M20 70V88M24 70V84" stroke="#FFD36B" stroke-width="1.6"/></svg></div><div class="lan b"><svg viewBox="0 0 40 90"><line x1="20" y1="0" x2="20" y2="22" stroke="#d9a441" stroke-width="1.2"/><rect x="12" y="20" width="16" height="5" rx="2" fill="#d9a441"/><ellipse cx="20" cy="46" rx="16" ry="21" fill="url(#lg)"/><path d="M20 25C8 38 8 56 20 67M20 25C32 38 32 56 20 67M20 25V67M5 46H35" stroke="rgba(120,40,0,.45)" stroke-width=".8" fill="none"/><rect x="13" y="66" width="14" height="4" rx="2" fill="#d9a441"/><path d="M16 70V84M20 70V88M24 70V84" stroke="#FFD36B" stroke-width="1.6"/></svg></div><div class="lan c"><svg viewBox="0 0 40 90"><line x1="20" y1="0" x2="20" y2="22" stroke="#d9a441" stroke-width="1.2"/><rect x="12" y="20" width="16" height="5" rx="2" fill="#d9a441"/><ellipse cx="20" cy="46" rx="16" ry="21" fill="url(#lg)"/><path d="M20 25C8 38 8 56 20 67M20 25C32 38 32 56 20 67M20 25V67M5 46H35" stroke="rgba(120,40,0,.45)" stroke-width=".8" fill="none"/><rect x="13" y="66" width="14" height="4" rx="2" fill="#d9a441"/><path d="M16 70V84M20 70V88M24 70V84" stroke="#FFD36B" stroke-width="1.6"/></svg></div><div class="lan d"><svg viewBox="0 0 40 90"><line x1="20" y1="0" x2="20" y2="22" stroke="#d9a441" stroke-width="1.2"/><rect x="12" y="20" width="16" height="5" rx="2" fill="#d9a441"/><ellipse cx="20" cy="46" rx="16" ry="21" fill="url(#lg)"/><path d="M20 25C8 38 8 56 20 67M20 25C32 38 32 56 20 67M20 25V67M5 46H35" stroke="rgba(120,40,0,.45)" stroke-width=".8" fill="none"/><rect x="13" y="66" width="14" height="4" rx="2" fill="#d9a441"/><path d="M16 70V84M20 70V88M24 70V84" stroke="#FFD36B" stroke-width="1.6"/></svg></div><svg width="0" height="0" style="position:absolute"><defs><radialGradient id="lg" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#FFF3B0"/><stop offset=".55" stop-color="#FFB627"/><stop offset="1" stop-color="#E5700A"/></radialGradient></defs></svg><div class="mw"><svg id="mand" viewBox="-110 -110 220 220"></svg></div>
 <p class="sm" data-bn="আপনি আমাদের বিয়েতে আমন্ত্রিত">You are invited to the wedding of</p>
 <h1 id="names" aria-label="Tisha and Shihab"></h1>
 <div class="arch"><div role="img" aria-label="Bride and groom in traditional wedding clothes"></div></div>
@@ -120,7 +166,7 @@ footer{padding:50px 0 80px;color:var(--mu)}footer .script{font-size:1.9rem;displ
 <section id="families" class="rv"><h2 data-bn="পরিবার">The families</h2><div class="orn"><i></i></div>
 <div class="two">
 <div class="card fam"><h3 data-bn="কনে">The Bride</h3><p class="n" data-bn="মরিয়ম বেগম তিশা">Morium Begum Tisha</p><p class="r" data-bn="কন্যা">Daughter of</p>
-<p data-bn="মোঃ শাহাবুদ্দিন মোল্লা">Md. Shahabuddin Molla</p><p data-bn="নাসিমা সুলতানা">Mst. Nasima Sultana</p>
+<p data-bn="মোঃশাহাবুদ্দিন মোল্লা">Md. Shahabuddin Molla</p><p data-bn="নাসিমা সুলতানা">Mst. Nasima Sultana</p>
 <p class="ad" data-bn="গ্রাম: গাছানী, ডাকঘর: গাছানী">Vill: Gachani, PO: Gachani<br>Thana: Dashmina, Zila: Patuakhali</p></div>
 <div class="card fam"><h3 data-bn="বর">The Groom</h3><p class="n" data-bn="মো. লাবিদ হোসেন (শিহাব)">Md. Labid Hossen (Shihab)</p><p class="r" data-bn="পুত্র">Son of</p>
 <p data-bn="মো. হাবিবুর রহমান">Md. Habibur Rahman</p><p data-bn="মোছা. নাসরিন আক্তার">Mst. Nasrin Akter</p>
@@ -135,7 +181,7 @@ footer{padding:50px 0 80px;color:var(--mu)}footer .script{font-size:1.9rem;displ
 <button class="btn alt" id="copy" data-bn="ঠিকানা কপি করুন">Copy address</button></div></div></section>
 
 <section id="contact" class="rv contact"><h2 data-bn="যোগাযোগ">Questions? Reach out</h2><div class="orn"><i></i></div>
-<div class="card"><p class="nm" data-bn="মোঃ হামিম মাহমুদ">Md. Hamim Mahamud</p><p class="sm" data-bn="কনের ভাই">Bride’s brother</p>
+<div class="card"><p class="nm" data-bn="হামিম মাহমুদ">Hamim Mahamud</p><p class="sm" data-bn="কনের ভাই">Bride’s brother</p>
 <div class="btns"><a class="btn" href="tel:+8801743957593" data-bn="কল করুন ০১৭৪৩৯৫৭৫৯৩">Call 01743957593</a>
 <a class="btn alt" href="https://wa.me/qr/5WQJ4THO346EK1?s=v" target="_blank" rel="noopener">WhatsApp</a></div></div></section>
 
@@ -167,6 +213,9 @@ const L=l=="bn"?"bn-BD":"en-GB",f=o=>T.toLocaleDateString(L,Object.assign({timeZ
 $("dow").textContent=u(f({weekday:"long"}));$("mon").textContent=u(f({month:"long"}));$("fd").textContent=f({weekday:"long",day:"numeric",month:"long",year:"numeric"});
 $("dnum").textContent=f({day:"2-digit"});$("yr").textContent=f({year:"numeric"});$("lang").textContent=l=="bn"?"English":"বাংলা";
 try{localStorage.setItem("lang",l)}catch(e){}tick()}
+(()=>{const t=$("tw");for(let i=0;i<34;i++){const e=document.createElement("i");e.className="tw";e.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*3}s;--l:${Math.random()*4}s`;t.appendChild(e)}
+addEventListener("scroll",()=>{const h=document.documentElement;$("prog").style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight||1)*100)+"%"},{passive:true});
+if(matchMedia("(hover:hover)").matches){const a=document.querySelector(".arch"),H=$("top");H.addEventListener("pointermove",e=>{const b=a.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;a.style.transform=`perspective(700px) rotateY(${x*12}deg) rotateX(${-y*10}deg)`});H.addEventListener("pointerleave",()=>a.style.transform="")}})();
 $("lang").onclick=()=>setLang(lang=="bn"?"en":"bn");
 $("copy").onclick=async()=>{try{await navigator.clipboard.writeText("Putulbari Restaurant & Community Center, "+$("addr").textContent);$("copy").textContent=lang=="bn"?"কপি হয়েছে ✓":"Copied ✓"}catch(e){}};
 $("share").onclick=async e=>{e.preventDefault();try{if(navigator.share)await navigator.share({title:"Tisha & Shihab's Wedding",url:location.href});else{await navigator.clipboard.writeText(location.href);$("share").textContent=lang=="bn"?"লিংক কপি হয়েছে":"Link copied"}}catch(x){}};
@@ -177,9 +226,36 @@ peacock:c=>`<svg viewBox="-11 -11 22 22"><path d="M0-9C8-8 8 2 0 7C-8 2-8-8 0-9Z
 dove:c=>`<svg viewBox="-11 -11 22 22"><path d="M-1 11C-7 2-4-8 7-10C6-2 5 5-1 11Z" fill="${c}" stroke="rgba(120,90,160,.45)" stroke-width=".5"/><path d="M-1 11C1 3 3-4 7-10M1 4L-3 2M2 0L-2-2M3-4L0-6" stroke="rgba(120,90,160,.55)" stroke-width=".6" fill="none"/></svg>`,
 feather:c=>`<svg viewBox="-11 -11 22 22"><path d="M1-10C9-7 9 2 2 8L0 6C-6 2-5-6 1-10Z" fill="${c}" stroke="rgba(120,90,160,.45)" stroke-width=".5"/><path d="M0 11L1-8M1-4L5-6M0 0L5-2M0 4L4 2M1-4L-3-5M0 0L-4-1" stroke="rgba(120,90,160,.55)" stroke-width=".6" fill="none"/></svg>`};
 const CL={flower:["#FF9EB5","#FFD1DC","#FFB627","#FFFFFF","#F47CA0"],leaf:["#6FBF73","#3E9B5A","#8ED081","#4FAE6A"],feather:["#FFF6E8","#F1E6FA","#FFFFFF","#FFE3A1"],peacock:["#1fae8a","#29b59a","#1c9b7d"],dove:["#FFFFFF","#F6F1FA","#E8E0F2","#FFF6E8"]},KS=Object.keys(SH);
-function petals(n){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;for(let i=0;i<n;i++){const t=KS[(Math.random()*KS.length)|0],c=CL[t][(Math.random()*CL[t].length)|0],p=document.createElement("i"),s=18+Math.random()*16;p.className="petal";p.innerHTML=SH[t](c);
+function petals(n){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;if(innerWidth<600)n=Math.ceil(n*.6);for(let i=0;i<n;i++){const t=KS[(Math.random()*KS.length)|0],c=CL[t][(Math.random()*CL[t].length)|0],p=document.createElement("i"),s=18+Math.random()*16;p.className="petal";p.innerHTML=SH[t](c);
 p.style.cssText=`left:${Math.random()*100}vw;width:${s}px;height:${s}px;--dx:${(Math.random()*200-100)|0}px;--rot:${(Math.random()*900-450)|0}deg;animation-duration:${6+Math.random()*7}s;animation-delay:${Math.random()*3}s`;document.body.appendChild(p);setTimeout(()=>p.remove(),17000)}}
-function openCard(){const s=$("splash");if(s.classList.contains("open"))return;s.classList.add("open");document.body.classList.remove("lock");document.body.classList.add("go");
+let ac,tmr,mode="",playing=false;const au=$("bg");
+const B=60/84,mf=n=>440*Math.pow(2,(n-69)/12);let nextT=0;
+const CH=[[[59,62,67],43],[[59,64,67],40],[[60,64,67],48],[[57,62,66],50],[[59,62,67],43],[[59,62,66],47],[[60,64,67],48],[[57,62,66],50]];
+const MEL=[[[79,1.5],[78,.5],[76,1]],[[74,1],[76,1],[71,1]],[[72,1.5],[76,.5],[79,1]],[[78,2],[74,1]],[[79,1],[83,1],[79,1]],[[78,1.5],[74,.5],[71,1]],[[72,1],[76,1],[79,1]],[[74,1],[78,1],[74,1]]];
+function genInit(){ac=new(window.AudioContext||window.webkitAudioContext)();const cp=ac.createDynamicsCompressor(),m=ac.createGain();m.gain.value=.8;m.connect(cp);cp.connect(ac.destination);ac.dry=m;
+const rv=ac.createConvolver(),n=ac.sampleRate*3|0,b=ac.createBuffer(2,n,ac.sampleRate);
+for(let c=0;c<2;c++){const d=b.getChannelData(c);for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/n,2.2)}
+rv.buffer=b;const w=ac.createGain();w.gain.value=.5;rv.connect(w);w.connect(m);const bus=ac.createGain();bus.connect(m);bus.connect(rv);ac.bus=bus}
+function voice(type,f,t,att,dur,vol,rel,dest){const o=ac.createOscillator(),g=ac.createGain();o.type=type;o.frequency.value=f;
+g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+att);g.gain.setValueAtTime(vol,t+Math.max(att,dur-rel));g.gain.exponentialRampToValueAtTime(.0005,t+dur+rel);
+o.connect(g);g.connect(dest||ac.bus);o.start(t);o.stop(t+dur+rel+.1)}
+function bell(f,t,d){const r=Math.min(2.2,d+.9);voice("sine",f,t,.004,.05,.1,r);voice("sine",f*2,t,.004,.04,.035,r*.6);voice("sine",f*5.4,t,.003,.02,.012,.25)}
+function sched(t0){for(let bar=0;bar<16;bar++){const k=bar%8,[tri,root]=CH[k],t=t0+bar*3*B;
+tri.forEach((n,i)=>{voice("sine",mf(n-12),t,.9,3*B-.5,.03,1.2);voice("sine",mf(n-12)*1.004,t,.9,3*B-.5,.018,1.2)});
+voice("sine",mf(root),t,.02,B*1.4,.16,.5);
+if(bar<8){[1,2].forEach(q=>tri.forEach(n=>voice("triangle",mf(n),t+q*B,.006,.08,.028,.5)))}
+else{[0,1,2,1,2,1].forEach((x,j)=>voice("triangle",mf(tri[x]),t+j*B/2,.005,.1,.04,.9))}
+let bt=t;MEL[k].forEach(([n,d])=>{if(n)bell(mf(n),bt,d*B);bt+=d*B})}}
+function loop(){if(ac.currentTime>nextT-2){sched(nextT);nextT+=48*B}}
+function genOn(){if(!ac){genInit();nextT=ac.currentTime+.3}ac.resume();if(!tmr)tmr=setInterval(loop,500);loop()}
+function genOff(){if(ac)ac.suspend()}
+function setMusic(on){playing=on;$("music").textContent=on?"🔊":"🔇";$("music").setAttribute("aria-pressed",on);
+if(mode=="file"){on?au.play():au.pause()}else if(mode=="gen"){on?genOn():genOff()}}
+function startMusic(){$("music").style.display="grid";au.volume=.6;
+const p=au.play();if(p&&p.then)p.then(()=>{mode="file";setMusic(true)}).catch(()=>{mode="gen";setMusic(true)});else{mode="gen";setMusic(true)}}
+$("music").onclick=()=>setMusic(!playing);
+document.addEventListener("visibilitychange",()=>{if(!mode)return;if(document.hidden){if(playing){mode=="file"?au.pause():genOff()}}else if(playing){mode=="file"?au.play():genOn()}});
+function openCard(){const s=$("splash");if(s.classList.contains("open"))return;startMusic();s.classList.add("open");document.body.classList.remove("lock");document.body.classList.add("go");
 $("lang").style.display="block";petals(30);setTimeout(()=>s.remove(),1400);setInterval(()=>petals(4),4000)}
 $("splash").onclick=openCard;$("splash").onkeydown=e=>{if(e.key=="Enter"||e.key==" ")openCard()};
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
