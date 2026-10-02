@@ -141,7 +141,7 @@ body{background:#010005}
 #sky{position:fixed;left:0;top:0;width:100%;height:100%;z-index:0;pointer-events:none}
 
 .quote{padding-top:34px}.qm{position:absolute;top:2px;left:16px;font:5rem/1 Yellowtail,cursive;color:var(--gold);opacity:.55}
-.qt{font-size:1.18rem;line-height:1.95;margin:0 0 16px;color:var(--iv);font-style:italic}html.bn .qt{font-style:normal;font-size:1.05rem}
+.qt{white-space:pre-line;font-size:1.18rem;line-height:1.95;margin:0 0 16px;color:var(--iv);font-style:italic}html.bn .qt{font-style:normal;font-size:1.05rem}
 .sig{margin:0;border-top:1px dotted rgba(245,179,53,.5);padding-top:12px}.sig .script{display:block;font-size:2rem;line-height:1.3;color:var(--gold)}html.bn .sig .script{font-family:"Hind Siliguri",sans-serif;font-size:1.35rem;font-weight:600}
 .sig small{color:var(--mu);letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}html.bn .sig small{text-transform:none;letter-spacing:.04em}
 .kids{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:6px 0 4px}
@@ -153,6 +153,9 @@ body{background:#010005}
 .pt{position:fixed;z-index:70;pointer-events:none;animation:pt .9s ease-out forwards}
 @keyframes pt{from{opacity:1}to{transform:translate(var(--dx),var(--dy)) scale(1.3);opacity:0}}
 @media(prefers-reduced-motion:reduce){.kid{animation:none}.pt{display:none}}
+
+.skyend{height:115svh;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:30px 0 120px;opacity:.9}
+.skyend .sm{font-size:1.05rem;letter-spacing:.08em}
 </style></head><body class="lock">
 <div id="prog"></div><canvas id="sky"></canvas><div class="strip l"></div><div class="strip r"></div>
 <div id="splash" role="button" tabindex="0" aria-label="Open invitation"><div class="door a"></div><div class="door b"></div>
@@ -184,14 +187,16 @@ body{background:#010005}
 <div class="two">
 <div class="card fam"><h3 data-bn="কনে">The Bride</h3><p class="n" data-bn="মরিয়ম বেগম তিশা">Moriom Begum Tisha</p><p class="r" data-bn="কন্যা">Daughter of</p>
 <p data-bn="মোঃ শাহাবুদ্দিন মোল্লা">Md. Shahabuddin Molla</p><p data-bn="নাসিমা সুলতানা">Mst. Nasima Sultana</p>
-<p class="ad" data-bn="গ্রাম: গাছানী, ডাকঘর: গাছানী">Vill: Gachani, PO: Gachani<br>Thana: Dashmina, Zila: Patuakhali</p></p></div>
+<p class="ad" data-bn="গ্রাম: গাছানী, ডাকঘর: গাছানী<br>থানা: দশমিনা, জেলা: পটুয়াখালী">Vill: Gachani, PO: Gachani<br>Thana: Dashmina, Zila: Patuakhali</p></div>
 <div class="card fam"><h3 data-bn="বর">The Groom</h3><p class="n" data-bn="মো. লাবিদ হোসেন (শিহাব)">Md. Labid Hossen (Shihab)</p><p class="r" data-bn="পুত্র">Son of</p>
 <p data-bn="মো. হাবিবুর রহমান">Md. Habibur Rahman</p><p data-bn="মোছা. নাসরিন আক্তার">Mst. Nasrin Akter</p>
 <p class="ad" data-bn="গ্রাম: চাঁদপুরা, ডাকঘর: আলীপুর<br>থানা: দশমিনা, জেলা: পটুয়াখালী">Vill: Chandpura, PO: Alipur<br>Thana: Dashmina, Zila: Patuakhali</p></div></div></section>
 
 <section id="message" class="rv"><h2 data-bn="বাবার বার্তা">A message from Father</h2><div class="orn"><i></i></div>
 <div class="card quote"><span class="qm">“</span>
-<p class="qt" id="fmsg" data-bn="প্রিয় আত্মীয়স্বজন ও শুভাকাঙ্ক্ষীগণ,অন্তরের গভীর কৃতজ্ঞতা ও ভালোবাসা নিয়ে আপনাদের সাদর আমন্ত্রণ জানাচ্ছি।আমার আদরের মেয়ে তিশা, এবার জীবনের এক নতুন অধ্যায়ে পা রাখতে যাচ্ছে। তার এই নতুন পথচলায় আপনাদের ভালোবাসা, দোয়া ও আশীর্বাদ আমাদের জন্য পরম প্রাপ্তি।
+<p class="qt" id="fmsg" data-bn="প্রিয় আত্মীয়স্বজন ও শুভাকাঙ্ক্ষীগণ,
+অন্তরের গভীর কৃতজ্ঞতা ও ভালোবাসা নিয়ে আপনাদের সাদর আমন্ত্রণ জানাচ্ছি।
+আমার আদরের মেয়ে তিশা, এবার জীবনের এক নতুন অধ্যায়ে পা রাখতে যাচ্ছে। তার এই নতুন পথচলায় আপনাদের ভালোবাসা, দোয়া ও আশীর্বাদ আমাদের জন্য পরম প্রাপ্তি।
 
 আপনাদের স্নেহ ও আশীর্বাদে তিশার নতুন জীবন হোক সুখ, শান্তি ও ভালোবাসায় পরিপূর্ণ—এই আমাদের আন্তরিক প্রত্যাশা।
 
@@ -226,6 +231,7 @@ We sincerely look forward to celebrating this beautiful moment with you and your
 
 <footer class="rv"><span class="script" data-bn="আপনার উপস্থিতিই আমাদের আনন্দকে পূর্ণতা দেবে">Your presence will make our day complete</span>
 <a class="btn alt" id="share" href="#" data-bn="নিমন্ত্রণ শেয়ার করুন">Share this invitation</a></footer>
+<div class="skyend"><p class="sm" data-bn="✨ এবার একটু থামুন, রাতের আকাশ উপভোগ করুন ✨">✨ Pause here and enjoy the night sky ✨</p><a class="btn alt" href="#top" data-bn="উপরে ফিরে যান ↑">Back to top ↑</a></div>
 </main>
 <script>
 // ▶ CHANGE THE WEDDING DATE/TIME HERE (Bangladesh time, +06:00)
