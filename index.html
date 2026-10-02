@@ -191,13 +191,20 @@ body{background:#010005}
 
 <section id="message" class="rv"><h2 data-bn="বাবার বার্তা">A message from Father</h2><div class="orn"><i></i></div>
 <div class="card quote"><span class="qm">“</span>
-<p class="qt" id="fmsg" data-bn="প্রিয় আত্মীয়স্বজন ও শুভাকাঙ্ক্ষীগণ,অন্তরের গভীর কৃতজ্ঞতা ও ভালোবাসা নিয়ে আপনাদের সাদর আমন্ত্রণ জানাচ্ছি।আমার আদরের মেয়ে **তিশা**, আমাদের ঘরের আলো হয়ে বেড়ে ওঠা সেই প্রিয় সন্তান, এবার জীবনের এক নতুন অধ্যায়ে পা রাখতে যাচ্ছে। তার এই নতুন পথচলায় আপনাদের ভালোবাসা, দোয়া ও আশীর্বাদ আমাদের জন্য পরম প্রাপ্তি।
+<p class="qt" id="fmsg" data-bn="প্রিয় আত্মীয়স্বজন ও শুভাকাঙ্ক্ষীগণ,অন্তরের গভীর কৃতজ্ঞতা ও ভালোবাসা নিয়ে আপনাদের সাদর আমন্ত্রণ জানাচ্ছি।আমার আদরের মেয়ে তিশা, এবার জীবনের এক নতুন অধ্যায়ে পা রাখতে যাচ্ছে। তার এই নতুন পথচলায় আপনাদের ভালোবাসা, দোয়া ও আশীর্বাদ আমাদের জন্য পরম প্রাপ্তি।
 
 আপনাদের স্নেহ ও আশীর্বাদে তিশার নতুন জীবন হোক সুখ, শান্তি ও ভালোবাসায় পরিপূর্ণ—এই আমাদের আন্তরিক প্রত্যাশা।
 
-**আপনাদের সশ্রদ্ধ উপস্থিতি ও আশীর্বাদই আমাদের আনন্দকে পূর্ণতা দেবে।**
+আপনাদের সশ্রদ্ধ উপস্থিতি ও আশীর্বাদই আমাদের আনন্দকে পূর্ণতা দেবে।
 
-সপরিবারে উপস্থিত থেকে আমাদের এই আনন্দঘন মুহূর্তের অংশীদার হওয়ার জন্য আন্তরিক আমন্ত্রণ রইল।">Dear family and friends, with hearts full of gratitude we invite you to share the happiest day of our family. My dear daughter Tisha has always been the light of our home, and today she begins a new chapter of her life. May your blessings and love walk beside her. Your presence will make our joy complete.</p>
+সপরিবারে উপস্থিত থেকে আমাদের এই আনন্দঘন মুহূর্তের অংশীদার হওয়ার জন্য আন্তরিক আমন্ত্রণ রইল।">Dear Family, Relatives, and Well-Wishers,
+With heartfelt gratitude and immense joy, we warmly invite you to share in this special occasion.
+
+Our beloved daughter, Tisha, is now stepping into a beautiful new chapter of her life.
+
+As she begins this new journey, your love, blessings, and prayers will mean the world to us. Your gracious presence will make this joyous occasion even more meaningful and complete.
+
+We sincerely look forward to celebrating this beautiful moment with you and your family.</p>
 <p class="sig"><span class="script" data-bn="মোঃ শাহাবুদ্দিন মোল্লা">Md. Shahabuddin Molla</span><small data-bn="কনের বাবা">Father of the Bride</small></p></div></section>
 
 <section id="venue" class="rv venue"><h2 data-bn="অনুষ্ঠানস্থল">Where to find us</h2><div class="orn"><i></i></div>
@@ -352,7 +359,7 @@ function loop(n){frame(n);if(!rm)requestAnimationFrame(loop)}
 size();requestAnimationFrame(loop);
 addEventListener("resize",()=>{if(innerWidth!=lw||Math.abs(innerHeight-lh)>150){size();if(rm)requestAnimationFrame(loop)}});
 })();
-(()=>{const N="Muaz,Ayan,Esha,Saiyara,Jayan,Safwan,Omayer,Arbin,Saifan,Arbin,Oliur,Aiman,Jarif,Abir,Nafi,Rejaul,Atik,Ayon,Ashik,Ebrahim,Pulok,Rafi,Mithila,Konika,Elma".split(","),K=$("kids"),n=$("kc");let cnt=0;
+(()=>{const N="Muaz,Ayan,Esha,Saiyara,Jayan,Safwan,Omayer,Arbin,Saifan,Ashraful,Oliur,Aiman,Jarif,Abir,Nafi,Rejaul,Atik,Ayon,Ashik,Ebrahim,Pulok,Rafi,Mithila,Konika,Elma".split(","),K=$("kids"),n=$("kc");let cnt=0;
 const G={en:["Welcome! 🎉","Let’s celebrate! 🥳","Big smiles for Tisha & Shihab! 😊","Save me a sweet! 🍬","Dance time! 💃","Congratulations! 🎊"],bn:["স্বাগতম! 🎉","চলো উদযাপন করি! 🥳","তিশা ও শিহাবের জন্য অনেক হাসি! 😊","আমার জন্য একটা মিষ্টি রেখো! 🍬","নাচের সময়! 💃","অভিনন্দন! 🎊"]};
 N.forEach((nm,i)=>{const b=document.createElement("button");b.className="kid";b.textContent=nm;b.style.cssText=`--h:${[330,45,190,280,130,20][i%6]};--d:${(i%7)*.35}s`;
 b.onclick=()=>{cnt++;n.textContent=lang=="bn"?String(cnt).replace(/\d/g,c=>"০১২৩৪৫৬৭৮৯"[c]):cnt;const g=G[lang],m=$("kmsg");m.textContent=nm+": "+g[(Math.random()*g.length)|0];
